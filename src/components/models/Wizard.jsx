@@ -1,0 +1,53 @@
+"use client"
+import React, { useRef } from 'react'
+import { useGLTF } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+
+export default function Wizard(props) {
+  const { nodes, materials } = useGLTF('/models/wizard-transformed-transformed.glb')
+
+  const modelRef = useRef();
+
+  /**
+   * useFrame allows us to run the code on every animation. Thsi is useful for creating animations or updating objects in the scene.
+   * Then we are using the value from the state, so we are using the time value, state.clock.elapsedTime this will keep increasing and because of this the value of the sin function keeps increasing
+   * Eventually it will keep increasing the value of the sin from -1 to 1, and then we are decreasing its total value. 
+   * And adding -1.5 to making the model comes to the centre
+   */
+  useFrame((state, delta, xrFrame) => {
+    modelRef.current.position.y = -1.5 + Math.sin(state.clock.elapsedTime)*0.15;
+  })
+
+
+  return (
+    <group {...props} dispose={null}
+    ref={modelRef}
+    position={[0,-1.5,0]}
+    scale={[0.06,0.06,0.06]}
+    rotation={[0.25, 0, 0]}
+    >
+      <mesh geometry={nodes.Evil_Hathattty_mesh_Evil_HatBLN_Hat_0.geometry} material={materials.Evil_HatBLN_Hat} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.WandpCylinder1_Wandq_0.geometry} material={materials.PaletteMaterial001} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.R_shoe_tongue_mesh_BLN_Shoe_tongue_0.geometry} material={materials.BLN_Shoe_tongue} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.Chest_piece_mesh_BLN_chest_piece_0.geometry} material={materials.BLN_chest_piece} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.Right_Eyeball_Mesh_Lam_eyeball_0.geometry} material={materials.material_0} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.pants_mesh_BLN_Pants_0.geometry} material={materials.BLN_Pants} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.lower_coat_mesh_FK_BLN_Lower_coat_0.geometry} material={materials.BLN_Lower_coat} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.R_shoe_mesh_BLN_shoes_0.geometry} material={materials.BLN_shoes} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.Upper_coat_mesh_BLN_upper_coat_0.geometry} material={materials.BLN_upper_coat} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.upper_body_mesh_BLN_shirt_0.geometry} material={materials.BLN_shirt} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.upper_body_mesh_BLN_Shirt_collar_0.geometry} material={materials.BLN_Shirt_collar} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.Coat_collar_mesh_BLN_collar_piece_0.geometry} material={materials.BLN_collar_piece} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.BookpolySurface5_Bookblinn1_0.geometry} material={materials.Bookblinn1} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.BookBook_corner_mesh4_Booklam_book_corners_0.geometry} material={materials.Booklam_book_corners} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.BookpolySurface20_BookBLN_Metal_parts_0.geometry} material={materials.BookBLN_Metal_parts} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.BookFront_glow_mesh_Booklambert8_0.geometry} material={materials.PaletteMaterial002} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.BookpolySurface2_BookBLN_Book_covers_0.geometry} material={materials.BookBLN_Book_covers} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.BookpCube10_Booklam_front_bits_0.geometry} material={materials.material_2} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.BookpolySurface28_Booklam_back_bits_0.geometry} material={materials.Booklam_back_bits} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+      <mesh geometry={nodes.Evil_HatpPlane1_Evil_HatsolidShader_0.geometry} material={materials.PaletteMaterial003} position={[-1.057, 0, 0]} rotation={[0, 0.224, 0]} scale={0.832} />
+    </group>
+  )
+}
+
+useGLTF.preload('/models/wizard-transformed-transformed.glb')
