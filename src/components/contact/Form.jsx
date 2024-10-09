@@ -3,6 +3,24 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser"
 import { toast, Toaster } from "sonner";
+import { motion } from "framer-motion";
+
+
+const container = {
+  hidden: { opacity: 0 }, //initially opacity zero and when it shows it will have 1
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3, //means the children inside the div it will have stagger animation and after 0.3 sec each will appear
+      delayChildren:0.2
+    },
+  },
+};
+
+const item= {
+  hidden: {scale: 0},
+  show: {scale: 1}
+};
 
 export default function App() {
   const {
@@ -56,11 +74,15 @@ export default function App() {
   return (
     <>
       <Toaster richColors={true} />
-      <form
+      <motion.form
+        variants={container} //to use container inside a div we can use variants
+        initial="hidden"
+        animate="show"
         className="max-w-md w-full flex flex-col items-center justify-center space-y-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <input
+        <motion.input
+          variants={item}
           className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
           type="text"
           placeholder="name"
@@ -74,7 +96,8 @@ export default function App() {
         {
           errors.name && <span className="inline-block self-start text-accent">{errors.name.message}</span>
         }
-        <input
+        <motion.input
+          variants={item}
           className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
           type="email"
           placeholder="email"
@@ -83,7 +106,8 @@ export default function App() {
         {
           errors.email && <span className="inline-block self-start text-accent">{errors.email.message}</span>
         }
-        <textarea
+        <motion.textarea
+          variants={item}
           className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
           placeholder="message"
           {...register("message", { required: "This field is required!", maxLength: {
@@ -97,12 +121,13 @@ export default function App() {
         {
           errors.message && <span className="inline-block self-start text-accent">{errors.message.message}</span>
         }
-        <input
+        <motion.input
+          variants={item}
           className="px-10 py-4 rounded-md shadow-lg bg-background border border-accenent/30 border-solid hover:shadow-glass-sm backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer capitalize"
           type="submit"
           value="Cast Your Message!"
         />
-      </form>
+      </motion.form>
     </>
   );
 }

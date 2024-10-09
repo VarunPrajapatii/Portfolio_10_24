@@ -1,9 +1,11 @@
 import Image from "next/image";
 import bg from "../../../../public/background/about-background.png";
 import RenderModel from "@/components/RenderModel";
-import Staff from "@/components/models/Staff";
-import Hat from "@/components/models/Hat";
+// import Hat from "@/components/models/Hat";
 import AboutDetails from "@/components/about";
+import dynamic from "next/dynamic";
+
+const Hat = dynamic(() => import("@/components/models/Hat"), {sst: false});
 
 export default function Home() {
   return (
