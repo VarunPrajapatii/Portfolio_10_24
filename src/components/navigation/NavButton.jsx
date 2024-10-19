@@ -65,6 +65,7 @@ const NavButton = ({ x, y, label, link, icon, newTab, labelDirection="right" }) 
             <NavLink
               variants={item}
               href={link}
+              download={label === "Resume" ? "Varun Prajapati's Resume.pdf" : undefined}
               target={newTab ? "_blank" : "_self"}
               className="text-foreground rounded-full flex items-center justify-center custom-bg"
               aia-label={label}
