@@ -27,7 +27,7 @@ const AboutDetails = () => {
             
             <ItemLayout className={'col-span-full xs:col-span-6 lg:col-span-4 text-accent'}>
                 <p className='font-semibold w-full text-left text-2xl sm:text-3xl'>
-                    2023 GATE IIT Kanpur Qualified<sub className='font-semibold text-base'></sub>
+                    Qualified GATE 2023<sub className='font-semibold text-base'></sub>
                 </p>
             </ItemLayout>
 
