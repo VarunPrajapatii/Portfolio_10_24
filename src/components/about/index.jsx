@@ -27,7 +27,7 @@ const AboutDetails = () => {
             
             <ItemLayout className={'col-span-full xs:col-span-6 lg:col-span-4 text-accent'}>
                 <p className='font-semibold w-full text-left text-2xl sm:text-3xl'>
-                    2023 GATE IIT Kanpur Qualified<sub className='font-semibold text-base'></sub>
+                    Qualified GATE 2023<sub className='font-semibold text-base'></sub>
                 </p>
             </ItemLayout>
 
@@ -48,7 +48,7 @@ const AboutDetails = () => {
             </ItemLayout>
 
             <ItemLayout className={'col-span-full md:col-span-6 !p-0'}>
-                <img className='w-full h-auto' src="https://github-readme-stats.vercel.app/api/pin/?username=varunprajapatii&repo=proPAYn_app&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false&description_lines_count=2" alt="VarunPrajapatii" loading='lazy' />
+                <img className='w-full h-auto' src="https://github-readme-stats.vercel.app/api/pin/?username=varunprajapatii&repo=proPAYn_app&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false&description_lines_count=5" alt="VarunPrajapatii" loading='lazy' />
             </ItemLayout>
 
             
