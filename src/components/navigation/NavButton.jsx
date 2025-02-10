@@ -1,7 +1,7 @@
 //To style the buttons
 import {
   Github,
-  Home,
+  Trophy,
   Linkedin,
   NotebookText,
   Palette,
@@ -17,8 +17,8 @@ import { motion } from "framer-motion";
 
 const getIcon = (icon) => {
   switch (icon) {
-    case "home":
-      return <Home className="w-full h-auto" strokeWidth={1.5} />;
+    case "trophy":
+      return <Trophy className="w-full h-auto" strokeWidth={1.5} />;
       break;
     case "about":
       return <User className="w-full h-auto" strokeWidth={1.5} />;
